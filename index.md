@@ -1,6 +1,6 @@
-## Index.md
+## Welcome
 
-This is the default Markdown format page for a github pages site. This is just **text** _to_ `experiment` with the features.
+I am a PhD candidate at Northwestern University studiyng Appleid Mathematics.
 
 ## Welcome to GitHub Pages
 
