@@ -1,6 +1,6 @@
 ## Welcome
 
-I am a PhD candidate at Northwestern University studiyng Appleid Mathematics.
+I am a PhD candidate at Northwestern University studying Appleid Mathematics.
 
 ## Welcome to GitHub Pages
 
