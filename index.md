@@ -1,3 +1,7 @@
+## Index.md
+
+This is the default Markdown format page for a github pages site. This is just **text** _to_ `experiment` with the features.
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/lynntf/lynntf.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
