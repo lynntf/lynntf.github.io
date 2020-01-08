@@ -71,8 +71,11 @@ function mouseClicked() {
   print("b:" + b + "")
   print("c:" + c + "")
   print("d:" + d + "\n")
-  stroke(0, 0, 0, 5);
-  
+  stroke(0, 0, 0, 5); 
+}
+
+function touchStarted(){
+  mouseClicked();
 }
 
 class traveler {
