@@ -75,7 +75,18 @@ function mouseClicked() {
 }
 
 function touchStarted(){
-  mouseClicked();
+  background(255, 255, 255);
+  a = random(-PI, PI);
+  b = random(-PI, PI);
+  c = random(-PI, PI);
+  d = random(-PI, PI);
+  exposures = 0;
+  print("Reset image----------")
+  print("a:" + a + "")
+  print("b:" + b + "")
+  print("c:" + c + "")
+  print("d:" + d + "\n")
+  stroke(0, 0, 0, 5);
 }
 
 class traveler {
