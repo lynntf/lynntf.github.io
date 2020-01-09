@@ -82,7 +82,8 @@ function touchStarted(){
   d = random(-PI, PI);
   exposures = 0;
   for(i = 0; i<maxnum; i++){
-    travelers[i].rebirth();
+    travelers[i].x = random(xmin, xmax);
+    travelers[i].y = random(xmin, xmax);
   }
   print("Reset image----------")
   print("a:" + a + "")
