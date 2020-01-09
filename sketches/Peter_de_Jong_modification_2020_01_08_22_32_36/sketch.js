@@ -16,7 +16,7 @@ exposures = 0;
 let travelers = [];
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(displayWidth, displayHeight);
   background(255, 255, 255);
   // bourke constants
   a = 2.01;
@@ -74,8 +74,8 @@ class traveler {
     this.x = this.xn;
     this.y = this.yn;
     if (i > startup) {
-      this.xp = (this.x - xmin) / (xmax - xmin) * 400;
-      this.yp = (this.y - ymin) / (ymax - ymin) * 400;
+      this.xp = (this.x - xmin) / (xmax - xmin) * displayWidth;
+      this.yp = (this.y - ymin) / (ymax - ymin) * displayHeight;
       stroke(0, 0, 0, 5);
       point(this.xp, this.yp);
     }
