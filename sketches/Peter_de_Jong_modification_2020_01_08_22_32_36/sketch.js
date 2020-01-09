@@ -36,43 +36,7 @@ function draw() {
     }
     exposures += num;
   }
-  // background(220);
-  //x = random(xmin, xmax);
-  //y = random(ymin, ymax);
-  //xn = 0;
-  //yn = 0;
-  //xp = 0;
-  //yp = 0;
-  //for (i = 0; i < max_iters; i++) {
-    // xn = sin(a*y) - cos(b*x);
-    // yn = sin(c*x) - cos(d*y);
-    //xn = y / abs(y) * (sin(a * y * y) - cos(b * x * x));
-    //yn = x / abs(x) * (sin(c * x * x) - cos(d * y * y));
-    //x = xn;
-    //y = yn;
-    //if (i > startup) {
-      //xp = (x - xmin) / (xmax - xmin) * 400;
-      //yp = (y - ymin) / (ymax - ymin) * 400;
-      //stroke(0, 0, 0, 50);
-      //point(xp, yp);
-    //}
-  //}
 }
-
-/*function mouseReleased() {
-  background(255, 255, 255);
-  a = random(-PI, PI);
-  b = random(-PI, PI);
-  c = random(-PI, PI);
-  d = random(-PI, PI);
-  exposures = 0;
-  print("Reset image----------")
-  print("a:" + a + "")
-  print("b:" + b + "")
-  print("c:" + c + "")
-  print("d:" + d + "\n")
-  stroke(0, 0, 0, 5);
-}*/
 
 function touchStarted(){
   background(255, 255, 255);
@@ -82,8 +46,7 @@ function touchStarted(){
   d = random(-PI, PI);
   exposures = 0;
   for(i = 0; i<maxnum; i++){
-    travelers[i].x = random(xmin, xmax);
-    travelers[i].y = random(xmin, xmax);
+    travelers[i].rebirth();
   }
   print("Reset image----------")
   print("a:" + a + "")
@@ -108,8 +71,6 @@ class traveler {
     stroke(0, 0, 0, 5);
     this.xn = this.y / abs(this.y) * (sin(a * this.y * this.y) - cos(b * this.x * this.x));
     this.yn = this.x / abs(this.x) * (sin(c * this.x * this.x) - cos(d * this.y * this.y));
-    //this.xn = this.x;
-    //this.yn = this.y;
     this.x = this.xn;
     this.y = this.yn;
     if (i > startup) {
