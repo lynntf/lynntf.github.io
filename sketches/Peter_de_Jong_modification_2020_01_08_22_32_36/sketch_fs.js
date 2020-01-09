@@ -13,8 +13,6 @@ maxexposures = 10000000;
 num = 0;
 exposures = 0;
 min_dim = 500;
-shift_x = 0;
-shift_y = 0;
 
 
 let travelers = [];
@@ -33,9 +31,11 @@ function setup() {
   }
   min_dim = min(displayWidth, displayHeight);
   if (displayWidth > displayHeight) {
-    shift_x = (displayWidth - displayHeight)/2;
+    xmin = xmin*(displayWidth/displayHeight);
+    xmax = xmax*(displayWidth/displayHeight);
   } else {
-    shift_y = (- displayWidth + displayHeight)/2;
+    ymin = ymin*(displayHeight/displayWidth);
+    ymax = ymax*(displayHeight/displayWidth);
   }
 }
 
@@ -84,8 +84,8 @@ class traveler {
     this.x = this.xn;
     this.y = this.yn;
     if (i > startup) {
-      this.xp = (this.x - xmin) / (xmax - xmin) * min_dim + shift_x;
-      this.yp = (this.y - ymin) / (ymax - ymin) * min_dim + shift_y;
+      this.xp = (this.x - xmin) / (xmax - xmin) * min_dim;
+      this.yp = (this.y - ymin) / (ymax - ymin) * min_dim;
       stroke(0, 0, 0, 5);
       point(this.xp, this.yp);
     }
