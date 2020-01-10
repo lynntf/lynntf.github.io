@@ -27,32 +27,32 @@ function setup() {
   
   checkbox = createCheckbox('Alpha = Beta', false);
   checkbox.changed(alphEqBeta);
-  checkbox.position(375,500);
+  checkbox.position(375,600);
   
   resetButton = createButton('Reset the sketch');
   resetButton.mousePressed(reset);
-  resetButton.position(0, 500);
+  resetButton.position(0, 600);
   
   randomizeButton = createButton('Random protocol');
   randomizeButton.mousePressed(randomize);
-  randomizeButton.position(0, 525);
+  randomizeButton.position(0, 625);
   
   randrButton = createButton('Reset and randomize');
   randrButton.mousePressed(randr);
-  randrButton.position(0, 550);
+  randrButton.position(0, 650);
   
   alabel = createSpan('Alpha');
-  alabel.position(150,500);
+  alabel.position(150,600);
   blabel = createSpan('Beta');
-  blabel.position(150,525);
+  blabel.position(150,625);
   glabel = createSpan('Gamma');
-  glabel.position(150,550);
+  glabel.position(150,650);
   inpAlph = createInput('57');
-  inpAlph.position(200,500);
+  inpAlph.position(200,600);
   inpBeta = createInput('57');
-  inpBeta.position(200,525);
+  inpBeta.position(200,625);
   inpGamma = createInput('120');
-  inpGamma.position(200,550);
+  inpGamma.position(200,650);
 }
 
 function alphEqBeta() {
