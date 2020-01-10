@@ -15,14 +15,12 @@ exposures = 0;
 min_dim = 500;
 shift_x = 0;
 shift_y = 0;
-var cnv;
 
 
 let travelers = [];
 
 function setup() {
-  cnv = createCanvas(windowWidth, windowHeight);
-  centerCanvas();
+  createCanvas(displayWidth, displayHeight);
   background(255, 255, 255);
   // bourke constants
   a = 2.01;
@@ -33,15 +31,15 @@ function setup() {
     travelers[i] = new traveler(i);
     num++;
   }
-  min_dim = min(windowWidth, windowHeight);
-  if (windowWidth > windowHeight) {
-    shift_x = (windowWidth - windowHeight) / 2;
-    //xmin = xmin*(windowWidth/windowHeight);
-    //xmax = xmax*(windowWidth/windowHeight);
+  min_dim = min(displayWidth, displayHeight);
+  if (displayWidth > displayHeight) {
+    shift_x = (displayWidth - displayHeight) / 2;
+    //xmin = xmin*(displayWidth/displayHeight);
+    //xmax = xmax*(displayWidth/displayHeight);
   } else {
-    shift_y = (-windowWidth + windowHeight) / 2;
-    //ymin = ymin*(windowHeight/windowWidth);
-    //ymax = ymax*(windowHeight/windowWidth);
+    shift_y = (-displayWidth + displayHeight) / 2;
+    //ymin = ymin*(displayHeight/displayWidth);
+    //ymax = ymax*(displayHeight/displayWidth);
   }
 }
 
@@ -70,16 +68,6 @@ function touchStarted() {
   print("c:" + c + "")
   print("d:" + d + "\n")
   stroke(0, 0, 0, 5);
-}
-
-function centerCanvas() {
-  var x = (windowWidth - width) / 2;
-  var y = (windowHeight - height) / 2;
-  cnv.position(x, y);
-}
-
-function windowResized() {
-  centerCanvas();
 }
 
 class traveler {
