@@ -1,3 +1,6 @@
+// Biaxial hemispherical PWI
+// lynntf January 2020
+
 //res = 500;
 xmin = -1;
 xmax = 1;
