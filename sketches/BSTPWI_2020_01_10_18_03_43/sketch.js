@@ -1,4 +1,4 @@
-res = 500;
+//res = 500;
 xmin = -1;
 xmax = 1;
 ymin = -1;
@@ -15,7 +15,9 @@ function setup() {
   gamma = 120*PI/180;
   alph = 57*PI/180;
   beta = 57*PI/180;
-  createCanvas(min(displayWidth,500), 600);
+  dimx = min(displayWidth,500);
+  dimy = dimx;
+  createCanvas(dimx, dimy);
   background(255, 255, 255);
   //colorMode(RGB,255,255,255);
   //noStroke();
@@ -27,32 +29,32 @@ function setup() {
   
   checkbox = createCheckbox('Alpha = Beta', false);
   checkbox.changed(alphEqBeta);
-  checkbox.position(375,600);
+  checkbox.position(375,dimy + 100);
   
   resetButton = createButton('Reset the sketch');
   resetButton.mousePressed(reset);
-  resetButton.position(0, 600);
+  resetButton.position(0, dimy + 100);
   
   randomizeButton = createButton('Random protocol');
   randomizeButton.mousePressed(randomize);
-  randomizeButton.position(0, 625);
+  randomizeButton.position(0, dimy + 125);
   
   randrButton = createButton('Reset and randomize');
   randrButton.mousePressed(randr);
-  randrButton.position(0, 650);
+  randrButton.position(0, dimy + 150);
   
   alabel = createSpan('Alpha');
-  alabel.position(150,600);
+  alabel.position(150,dimy + 100);
   blabel = createSpan('Beta');
-  blabel.position(150,625);
+  blabel.position(150,dimy + 125);
   glabel = createSpan('Gamma');
-  glabel.position(150,650);
+  glabel.position(150,dimy + 150);
   inpAlph = createInput('57');
-  inpAlph.position(200,600);
+  inpAlph.position(200,dimy + 100);
   inpBeta = createInput('57');
-  inpBeta.position(200,625);
+  inpBeta.position(200,dimy + 125);
   inpGamma = createInput('120');
-  inpGamma.position(200,650);
+  inpGamma.position(200,dimy + 150);
 }
 
 function alphEqBeta() {
@@ -233,7 +235,7 @@ class Tracers {
     }
     //stroke(colorR,colorG,colorB,25);
 
-    point((sqrt(1/(1-this.y))*this.x - xmin)/(xmax - xmin)*res, (sqrt(1/(1-this.y))*this.z - zmin)/(zmax-zmin)*res);
+    point((sqrt(1/(1-this.y))*this.x - xmin)/(xmax - xmin)*dimx, (sqrt(1/(1-this.y))*this.z - zmin)/(zmax-zmin)*dimy);
   }
 
   rebirth(index) {
