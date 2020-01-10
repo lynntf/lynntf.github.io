@@ -15,51 +15,53 @@ exposures = 0;
 min_dim = 500;
 shift_x = 0;
 shift_y = 0;
+var cnv;
 
 
 let travelers = [];
 
 function setup() {
-  createCanvas(displayWidth, displayHeight);
+  cnv = createCanvas(windowWidth, windowHeight);
+  centerCanvas();
   background(255, 255, 255);
   // bourke constants
   a = 2.01;
   b = -2.53;
   c = 1.61;
   d = -0.33;
-  for(i = 0; i<maxnum; i++){
+  for (i = 0; i < maxnum; i++) {
     travelers[i] = new traveler(i);
     num++;
   }
-  min_dim = min(displayWidth, displayHeight);
-  if (displayWidth > displayHeight) {
-    shift_x = (displayWidth - displayHeight)/2;
-    //xmin = xmin*(displayWidth/displayHeight);
-    //xmax = xmax*(displayWidth/displayHeight);
+  min_dim = min(windowWidth, windowHeight);
+  if (windowWidth > windowHeight) {
+    shift_x = (windowWidth - windowHeight) / 2;
+    //xmin = xmin*(windowWidth/windowHeight);
+    //xmax = xmax*(windowWidth/windowHeight);
   } else {
-    shift_y = (- displayWidth + displayHeight)/2;
-    //ymin = ymin*(displayHeight/displayWidth);
-    //ymax = ymax*(displayHeight/displayWidth);
+    shift_y = (-windowWidth + windowHeight) / 2;
+    //ymin = ymin*(windowHeight/windowWidth);
+    //ymax = ymax*(windowHeight/windowWidth);
   }
 }
 
 function draw() {
   if (exposures < maxexposures) {
-    for(i = 0; i < maxnum; i++) {
+    for (i = 0; i < maxnum; i++) {
       travelers[i].draw();
     }
     exposures += num;
   }
 }
 
-function touchStarted(){
+function touchStarted() {
   background(255, 255, 255);
   a = random(-PI, PI);
   b = random(-PI, PI);
   c = random(-PI, PI);
   d = random(-PI, PI);
   exposures = 0;
-  for(i = 0; i<maxnum; i++){
+  for (i = 0; i < maxnum; i++) {
     travelers[i].rebirth();
   }
   print("Reset image----------")
@@ -68,6 +70,16 @@ function touchStarted(){
   print("c:" + c + "")
   print("d:" + d + "\n")
   stroke(0, 0, 0, 5);
+}
+
+function centerCanvas() {
+  var x = (windowWidth - width) / 2;
+  var y = (windowHeight - height) / 2;
+  cnv.position(x, y);
+}
+
+function windowResized() {
+  centerCanvas();
 }
 
 class traveler {
@@ -83,8 +95,8 @@ class traveler {
 
   draw() {
     stroke(0, 0, 0, 5);
-    this.xn = (sin(a * this.y ) - cos(b * this.x ));
-    this.yn = (sin(c * this.x ) - cos(d * this.y ));
+    this.xn = (sin(a * this.y) - cos(b * this.x));
+    this.yn = (sin(c * this.x) - cos(d * this.y));
     this.x = this.xn;
     this.y = this.yn;
     if (i > startup) {
@@ -94,11 +106,11 @@ class traveler {
       point(this.xp, this.yp);
     }
     this.age++;
-    if(this.age > max_iters) {
+    if (this.age > max_iters) {
       this.rebirth();
     }
   }
-  
+
   rebirth() {
     this.x = random(xmin, xmax);
     this.y = random(ymin, ymax);
