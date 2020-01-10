@@ -18,7 +18,7 @@ function setup() {
   dimx = min(displayWidth,500);
   dimy = dimx;
   var canvas = createCanvas(dimx, dimy);
-  canvas.parent('sketch-holder');
+  //canvas.parent('sketch-holder');
   background(255, 255, 255);
   //colorMode(RGB,255,255,255);
   //noStroke();
@@ -30,32 +30,32 @@ function setup() {
   
   checkbox = createCheckbox('Alpha = Beta', false);
   checkbox.changed(alphEqBeta);
-  checkbox.position(150,dimy + 175);
+  checkbox.position(150,dimy + 75);
   
   resetButton = createButton('Reset the sketch');
   resetButton.mousePressed(reset);
-  resetButton.position(0, dimy + 100);
+  resetButton.position(0, dimy + 00);
   
   randomizeButton = createButton('Random protocol');
   randomizeButton.mousePressed(randomize);
-  randomizeButton.position(0, dimy + 125);
+  randomizeButton.position(0, dimy + 25);
   
   randrButton = createButton('Reset and randomize');
   randrButton.mousePressed(randr);
-  randrButton.position(0, dimy + 150);
+  randrButton.position(0, dimy + 50);
   
   alabel = createSpan('Alpha');
-  alabel.position(150,dimy + 100);
+  alabel.position(150,dimy + 00);
   blabel = createSpan('Beta');
-  blabel.position(150,dimy + 125);
+  blabel.position(150,dimy + 25);
   glabel = createSpan('Gamma');
-  glabel.position(150,dimy + 150);
+  glabel.position(150,dimy + 50);
   inpAlph = createInput('57');
-  inpAlph.position(200,dimy + 100);
+  inpAlph.position(200,dimy + 00);
   inpBeta = createInput('57');
-  inpBeta.position(200,dimy + 125);
+  inpBeta.position(200,dimy + 25);
   inpGamma = createInput('120');
-  inpGamma.position(200,dimy + 150);
+  inpGamma.position(200,dimy + 50);
 }
 
 function alphEqBeta() {
