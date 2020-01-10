@@ -17,7 +17,8 @@ function setup() {
   beta = 57*PI/180;
   dimx = min(displayWidth,500);
   dimy = dimx;
-  createCanvas(dimx, dimy);
+  var canvas = createCanvas(dimx, dimy);
+  canvas.parent('sketch-holder');
   background(255, 255, 255);
   //colorMode(RGB,255,255,255);
   //noStroke();
@@ -29,7 +30,7 @@ function setup() {
   
   checkbox = createCheckbox('Alpha = Beta', false);
   checkbox.changed(alphEqBeta);
-  checkbox.position(375,dimy + 100);
+  checkbox.position(150,dimy + 175);
   
   resetButton = createButton('Reset the sketch');
   resetButton.mousePressed(reset);
@@ -73,9 +74,9 @@ function draw() {
 
 
 function randomize() {
-  a = random(0,PI/2);
-  b = random(0,PI/2);
-  g = random(0,PI/2);
+  a = random(0,PI);
+  b = random(0,PI);
+  g = random(0,PI);
   if(aeb) {
     b = a;
   }
