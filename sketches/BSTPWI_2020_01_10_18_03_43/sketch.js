@@ -17,7 +17,7 @@ function setup() {
   beta = 57*PI/180;
   dimx = min(displayWidth,500);
   dimy = dimx;
-  var canvas = createCanvas(dimx, dimy);
+  var canvas = createCanvas(dimx, dimy + 100);
   //canvas.parent('sketch-holder');
   background(255, 255, 255);
   //colorMode(RGB,255,255,255);
