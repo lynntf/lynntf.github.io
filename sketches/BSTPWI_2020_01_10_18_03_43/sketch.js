@@ -15,7 +15,7 @@ function setup() {
   gamma = 120*PI/180;
   alph = 57*PI/180;
   beta = 57*PI/180;
-  createCanvas(500, 600);
+  createCanvas(min(displayWidth,500), 600);
   background(255, 255, 255);
   //colorMode(RGB,255,255,255);
   //noStroke();
