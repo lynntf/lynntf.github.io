@@ -28,17 +28,17 @@ B = 155;
 let travelers = [];
 
 function setup() {
-  createCanvas(displayWidth, displayHeight);
-  if (displayWidth < displayHeight) {
-    min_dim = displayWidth / 2;
+  createCanvas(windowWidth, windowHeight);
+  if (windowWidth < windowHeight) {
+    min_dim = windowWidth / 2;
   } else {
-    min_dim = displayHeight / 2;
+    min_dim = windowHeight / 2;
   }
   dimx = min_dim;
   dimy = min_dim;
   
-  xcopies = displayWidth/dimx;
-  ycopies = displayHeight/dimy;
+  xcopies = windowWidth/dimx;
+  ycopies = windowHeight/dimy;
   background(0,0,0);
   cnorm = sqrt(R * R + G * G + B * B);
   R = R / cnorm * 255;
