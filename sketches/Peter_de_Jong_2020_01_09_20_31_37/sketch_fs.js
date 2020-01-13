@@ -15,6 +15,8 @@ exposures = 0;
 min_dim = 500;
 shift_x = 0;
 shift_y = 0;
+m = 0;
+q = 0;
 
 
 let travelers = [];
@@ -50,32 +52,36 @@ function draw() {
     }
     exposures += num;
   }
+  q++;
+  if (q > 15) {
+    q = 0;
+    m = 0;
+  }
 }
 
 function touchStarted() {
-  
-}
-
-function mouseClicked(){
-}
-
-function doubleClicked(){
-  background(255, 255, 255);
-  a = random(-PI, PI);
-  b = random(-PI, PI);
-  c = random(-PI, PI);
-  d = random(-PI, PI);
-  exposures = 0;
-  for (i = 0; i < maxnum; i++) {
-    travelers[i].rebirth();
+  m++;
+  q = 0;
+  if (m > 1) {
+    background(255, 255, 255);
+    a = random(-PI, PI);
+    b = random(-PI, PI);
+    c = random(-PI, PI);
+    d = random(-PI, PI);
+    exposures = 0;
+    for (i = 0; i < maxnum; i++) {
+      travelers[i].rebirth();
+    }
+    print("Reset image----------")
+    print("a:" + a + "")
+    print("b:" + b + "")
+    print("c:" + c + "")
+    print("d:" + d + "\n")
+    stroke(0, 0, 0, 5);
+    m = 0;
   }
-  print("Reset image----------")
-  print("a:" + a + "")
-  print("b:" + b + "")
-  print("c:" + c + "")
-  print("d:" + d + "\n")
-  stroke(0, 0, 0, 5);
 }
+
 
 class traveler {
   constructor(i) {
