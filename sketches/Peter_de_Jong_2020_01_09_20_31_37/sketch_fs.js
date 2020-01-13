@@ -53,6 +53,13 @@ function draw() {
 }
 
 function touchStarted() {
+  
+}
+
+function mouseClicked(){
+}
+
+function doubleClicked(){
   background(255, 255, 255);
   a = random(-PI, PI);
   b = random(-PI, PI);
