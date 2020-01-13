@@ -29,6 +29,14 @@ let travelers = [];
 
 function setup() {
   createCanvas(displayWidth, displayHeight);
+  if (displayWidth < displayHeight) {
+    min_dim = displayWidth / 2;
+  } else {
+    min_dim = displayHeight / 2;
+  }
+  dimx = min_dim;
+  dimy = min_dim;
+  
   xcopies = displayWidth/dimx;
   ycopies = displayHeight/dimy;
   background(0,0,0);
