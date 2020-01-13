@@ -8,22 +8,24 @@ xmin = -2.5;
 xmax = 2.5;
 ymin = -2.5;
 ymax = 2.5;
-maxnum =4000;
+maxnum = 4000;
 maxexposures = 10000000;
 num = 0;
 exposures = 0;
+m = 0;
+q = 0;
 
 let travelers = [];
 
 function setup() {
-  createCanvas(500, 500);
+  createCanvas(500,500);
   background(255, 255, 255);
   // bourke constants
   a = 2.01;
   b = -2.53;
   c = 1.61;
   d = -0.33;
-  for(i = 0; i<maxnum; i++){
+  for (i = 0; i < maxnum; i++) {
     travelers[i] = new traveler(i);
     num++;
   }
@@ -31,29 +33,39 @@ function setup() {
 
 function draw() {
   if (exposures < maxexposures) {
-    for(i = 0; i < maxnum; i++) {
+    for (i = 0; i < maxnum; i++) {
       travelers[i].draw();
     }
     exposures += num;
   }
+  q++;
+  if (q > 15) {
+    q = 0;
+    m = 0;
+  }
 }
 
-function touchStarted(){
-  background(255, 255, 255);
-  a = random(-PI, PI);
-  b = random(-PI, PI);
-  c = random(-PI, PI);
-  d = random(-PI, PI);
-  exposures = 0;
-  for(i = 0; i<maxnum; i++){
-    travelers[i].rebirth();
+function touchStarted() {
+  m++;
+  q = 0;
+  if (m > 1) {
+    background(255, 255, 255);
+    a = random(-PI, PI);
+    b = random(-PI, PI);
+    c = random(-PI, PI);
+    d = random(-PI, PI);
+    exposures = 0;
+    for (i = 0; i < maxnum; i++) {
+      travelers[i].rebirth();
+    }
+    print("Reset image----------")
+    print("a:" + a + "")
+    print("b:" + b + "")
+    print("c:" + c + "")
+    print("d:" + d + "\n")
+    stroke(0, 0, 0, 5);
+    m = 0;
   }
-  print("Reset image----------")
-  print("a:" + a + "")
-  print("b:" + b + "")
-  print("c:" + c + "")
-  print("d:" + d + "\n")
-  stroke(0, 0, 0, 5);
 }
 
 class traveler {
@@ -80,11 +92,11 @@ class traveler {
       point(this.xp, this.yp);
     }
     this.age++;
-    if(this.age > max_iters) {
+    if (this.age > max_iters) {
       this.rebirth();
     }
   }
-  
+
   rebirth() {
     this.x = random(xmin, xmax);
     this.y = random(ymin, ymax);
