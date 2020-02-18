@@ -35,15 +35,15 @@ function setup() {
   checkbox.changed(alphEqBeta);
   checkbox.position(150,dimy + 75);
   
-  resetButton = createButton('Reset the sketch');
+  resetButton = createButton('Redraw');
   resetButton.mousePressed(reset);
   resetButton.position(0, dimy + 00);
   
-  randomizeButton = createButton('Random protocol');
+  randomizeButton = createButton('Randomize values');
   randomizeButton.mousePressed(randomize);
   randomizeButton.position(0, dimy + 25);
   
-  randrButton = createButton('Reset and randomize');
+  randrButton = createButton('Randomize + redraw');
   randrButton.mousePressed(randr);
   randrButton.position(0, dimy + 50);
   
