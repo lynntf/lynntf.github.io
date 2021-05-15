@@ -1,6 +1,6 @@
 ## Welcome
 
-I am a PhD candidate at Northwestern University studying Appleid Mathematics. You can find my resume [here](ThomasLynn_resume_2.pdf)
+I am a PhD candidate at Northwestern University studying Appleid Mathematics. You can find my resume [here](ThomasLynn_resume_2.pdf).
 
 ## Research interests
 
