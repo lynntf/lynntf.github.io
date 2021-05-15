@@ -4,4 +4,6 @@
 
 $$e^{i\pi}$$
 
-\\(\sin(n\pi + \varepsilon)\sym \sin(n\pi)\\)
+\\(\sin(n\pi + \varepsilon) \sim \sin(n\pi)\\)
+
+$\arctan(\theta + \sigma_{ij}$
