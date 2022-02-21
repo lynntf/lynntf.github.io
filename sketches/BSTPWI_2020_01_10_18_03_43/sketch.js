@@ -8,9 +8,10 @@ ymin = -1;
 ymax = 1;
 zmin = -1;
 zmax = 1;
-max_iters = 500;
-num_tracers = 400;
+max_iters = 10000000;
+num_tracers = 1000;
 aeb = false;
+projection = 0;
 
 tracers = [];
 
@@ -21,13 +22,13 @@ function setup() {
   dimx = min(displayWidth,500);
   dimy = dimx;
   var canvas = createCanvas(dimx, dimy + 100);
-  canvas.parent('sketch-holder');
+  //canvas.parent('sketch-holder');
   background(255, 255, 255);
   //colorMode(RGB,255,255,255);
   //noStroke();
   // make some tracers
   for (i = 0; i < num_tracers; i++) {
-    tracers[i] = new Tracers(i); // call the constructor of th travelers
+    tracers[i] = new Tracers(i); // call the constructor of the travelers
   }
   
   
@@ -35,9 +36,13 @@ function setup() {
   checkbox.changed(alphEqBeta);
   checkbox.position(150,dimy + 75);
   
+  checkbox = createCheckbox('Projection', false);
+  checkbox.changed(proj);
+  checkbox.position(0,dimy + 75);
+  
   resetButton = createButton('Redraw');
   resetButton.mousePressed(reset);
-  resetButton.position(0, dimy + 00);
+  resetButton.position(0, dimy + 0);
   
   randomizeButton = createButton('Randomize values');
   randomizeButton.mousePressed(randomize);
@@ -48,17 +53,27 @@ function setup() {
   randrButton.position(0, dimy + 50);
   
   alabel = createSpan('Alpha');
-  alabel.position(150,dimy + 00);
+  alabel.position(150,dimy + 0);
   blabel = createSpan('Beta');
   blabel.position(150,dimy + 25);
   glabel = createSpan('Gamma');
   glabel.position(150,dimy + 50);
   inpAlph = createInput('57');
-  inpAlph.position(200,dimy + 00);
+  inpAlph.position(200,dimy + 0);
   inpBeta = createInput('57');
   inpBeta.position(200,dimy + 25);
   inpGamma = createInput('120');
   inpGamma.position(200,dimy + 50);
+  iters = 0;
+}
+
+function proj() {
+  reset();
+  if (this.checked()) {
+    projection = 1;
+  } else {
+    projection = 0;
+  }
 }
 
 function alphEqBeta() {
@@ -72,6 +87,13 @@ function alphEqBeta() {
 function draw() {
   for (i=0; i<num_tracers; i++) {
     tracers[i].draw();
+  }
+  iters++;
+  if (iters > max_iters) {
+    for(i=0; i < num_tracers; i++){
+      tracers[i].rebirth();
+    }
+    iters = 0;
   }
 }
 
@@ -106,7 +128,7 @@ function reset() {
     tracers[i].rebirth(i);
   }
 }
-120
+// 120
 class Tracers {
   constructor(index) {
     this.x = 0;
@@ -118,7 +140,7 @@ class Tracers {
     this.t = 0;
     this.cut = 0;
     this.colorR = random(0, 1);
-    this.colorG = random(0.1);
+    this.colorG = random(0, 1);
     this.colorB = random(0, 1);
     this.color_norm = sqrt(this.colorR*this.colorR + this.colorG*this.colorG + this.colorB*this.colorB);
     this.colorR = this.colorR/this.color_norm*255;
@@ -191,6 +213,19 @@ class Tracers {
   }
 
   draw() {
+    if (this.cut == 1) {
+      stroke(255, 0, 0, 10);
+      // stroke(this.colorR, this.colorG, this.colorB, 10);
+    } else {
+      stroke(0, 0, 255, 10);
+    }
+    // stroke(this.colorR,this.colorG,this.colorB,25);
+    if (projection == 1){
+    point((sqrt(1/(1-this.y))*this.x - xmin)/(xmax - xmin)*dimx, (sqrt(1/(1-this.y))*this.z - zmin)/(zmax-zmin)*dimy);
+    } else {
+    point((this.x- xmin)/(xmax - xmin)*dimx, (this.z - zmin)/(zmax-zmin)*dimy);
+    }
+    
     this.xn = cos(alph)*this.x - sin(alph)*this.y;
     this.yn = sin(alph)*this.x + cos(alph)*this.y;
     this.x = this.xn;
@@ -231,21 +266,14 @@ class Tracers {
     this.x = this.xn;
     this.y = this.yn;
     this.z = this.zn;
-
-    if (this.cut == 1) {
-      stroke(255, 0, 0, 50);
-    } else {
-      stroke(0, 0, 255, 50);
-    }
-    //stroke(colorR,colorG,colorB,25);
-
-    point((sqrt(1/(1-this.y))*this.x - xmin)/(xmax - xmin)*dimx, (sqrt(1/(1-this.y))*this.z - zmin)/(zmax-zmin)*dimy);
   }
 
   rebirth(index) {
-    if (index < num_tracers/2) {
+    // if (index < num_tracers/2) {
+    if (random() < 0.5) {
       this.cut = 1;
-      this.t = (1.0*index)/(1.0*num_tracers)*2.0;
+      // this.t = (1.0*index)/(1.0*num_tracers)*2.0;
+      this.t = random()*2.0;
       this.x = sin(this.t*PI);
       this.z = cos(this.t*PI);
       this.y = 0;
@@ -254,7 +282,8 @@ class Tracers {
       this.zn = this.z;
     } else {
       this.cut = 2;
-      this.t = (1.0*(index - num_tracers/2))/(1.0*num_tracers)*2.0;
+      // this.t = (1.0*(index - num_tracers/2))/(1.0*num_tracers)*2.0;
+      this.t = random()*2.0;
       this.x = sin(this.t*PI);
       this.z = cos(this.t*PI);
       this.y = 0;
