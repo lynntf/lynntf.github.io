@@ -14,7 +14,7 @@ $$e^{i\pi}$$
 $$e^{i\pi}$$
 
 ```latex
-\\(\sin(n\pi + \varepsilon) \sim \sin(n\pi)\\)
+\(\sin(n\pi + \varepsilon) \sim \sin(n\pi)\)
 ```
 
 \\(\sin(n\pi + \varepsilon) \sim \sin(n\pi)\\)
