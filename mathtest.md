@@ -27,3 +27,9 @@ $\arctan(\theta + \sigma_{ij})$
 ```
 
 $\arctan(\theta + \sigma_{ij})$
+
+```latex
+\$\arctan(\theta + \sigma_{ij})\$
+```
+
+\$\arctan(\theta + \sigma_{ij})\$
