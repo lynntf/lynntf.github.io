@@ -4,6 +4,8 @@
 <script src="https://lynntf.github.io/libraries/p5.sound.min.js"></script>
 <script src="sketch.js"></script>
 
+<canvas id="theCanvas" data-processing-sources="sketch.js"></canvas>
+
 This is a discontinuous shear map: \\(x_n = \mod(x + a \sin(b \pi y), 1), y_n = \mod(y + c \sin(d \pi x), 1)\\)
 
 You can find this sketch on the [p5.js website](https://editor.p5js.org/lynntf/sketches/GnbRFcU0o) as well to play around with it.
