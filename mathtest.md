@@ -13,7 +13,7 @@ $$e^{i\pi}$$
 
 $$e^{i\pi}$$
 
-```
+```latex
 \\(\sin(n\pi + \varepsilon) \sim \sin(n\pi)\\)
 ```
 
@@ -21,7 +21,7 @@ $$e^{i\pi}$$
 
 Inline math renders properly when using explicit (and escaped) start (`\\(`) and stop (`\\)`) indicators for math mode. Using `$` does not appear to work
 
-```
+```latex
 $\arctan(\theta + \sigma_{ij}$
 ```
 
