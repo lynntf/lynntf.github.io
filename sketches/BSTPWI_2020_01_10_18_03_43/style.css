@@ -4,7 +4,7 @@ html, body {
   height: 100%;
 }
 
-#p5sketch {
+#sketch-holder {
    text-align:center;
 /*    width: 50%; */
    margin: 0 auto;
