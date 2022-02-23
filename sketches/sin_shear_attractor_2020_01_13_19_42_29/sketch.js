@@ -1,5 +1,6 @@
 // sine shear attractor
 // lynntf January 2020
+canvasRef = select('theCanvas')
 
 max_iters = 200;
 startup = 5;
