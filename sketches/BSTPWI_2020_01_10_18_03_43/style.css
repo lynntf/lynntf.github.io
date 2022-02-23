@@ -3,6 +3,13 @@ html, body {
   padding: 0;
   height: 100%;
 }
+
+#p5sketch {
+   text-align:center;
+/*    width: 50%; */
+   margin: 0 auto;
+}
+
 canvas {
   display: block;
   /* This centers our sketch horizontally. */
