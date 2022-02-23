@@ -27,7 +27,7 @@ B = 155;
 let travelers = [];
 
 function setup() {
-  createCanvas(500, 500);
+  var canvas = createCanvas(500, 500);
   canvas.parent('p5sketch');
   background(0,0,0);
   cnorm = sqrt(R * R + G * G + B * B);
