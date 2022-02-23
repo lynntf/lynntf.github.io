@@ -2,7 +2,7 @@
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script src="https://lynntf.github.io/libraries/p5.js"></script>
 <script src="https://lynntf.github.io/libraries/p5.sound.min.js"></script>
-<script src="sketch.js"></script>
+<!-- <script src="sketch.js"></script> -->
 
 <div id="canvas-container">
    <canvas id="theCanvas" data-processing-sources="sketch.js"></canvas>
