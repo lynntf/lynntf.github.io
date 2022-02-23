@@ -1,6 +1,6 @@
 // sine shear attractor
 // lynntf January 2020
-canvasRef = select('theCanvas')
+let myp5 = new p5(s, document.getElementById('p5sketch'));
 
 max_iters = 200;
 startup = 5;
