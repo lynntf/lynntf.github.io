@@ -4,8 +4,11 @@
 <script src="https://lynntf.github.io/libraries/p5.sound.min.js"></script>
 <!-- <script src="sketch.js"></script> -->
 
-<div id="canvas-container">
-   <canvas id="theCanvas"></canvas>
+<!-- <div id="canvas-container"> -->
+<!--    <canvas id="theCanvas"></canvas> -->
+<!-- </div> -->
+<div id = "p5sketch">
+   <!-- p5 instance will be created here -->
 </div>
 <script src="sketch.js"></script>
 
