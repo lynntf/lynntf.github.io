@@ -4,7 +4,9 @@
 <script src="https://lynntf.github.io/libraries/p5.sound.min.js"></script>
 <script src="sketch.js"></script>
 
-<canvas id="theCanvas" data-processing-sources="sketch.js"></canvas>
+<div id="canvas-container">
+   <canvas id="theCanvas" data-processing-sources="sketch.js"></canvas>
+</div>
 
 This is a discontinuous shear map: \\(x_n = \mod(x + a \sin(b \pi y), 1), y_n = \mod(y + c \sin(d \pi x), 1)\\)
 
