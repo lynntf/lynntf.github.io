@@ -5,7 +5,7 @@
 <!-- <script src="sketch.js"></script> -->
 
 <div id="canvas-container">
-   <canvas id="theCanvas" data-processing-sources="sketch.js"></canvas>
+   <canvas id="theCanvas"><script src="sketch.js"></script></canvas>
 </div>
 
 This is a discontinuous shear map: \\(x_n = \mod(x + a \sin(b \pi y), 1), y_n = \mod(y + c \sin(d \pi x), 1)\\)
