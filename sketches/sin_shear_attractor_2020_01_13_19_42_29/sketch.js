@@ -1,6 +1,6 @@
 // sine shear attractor
 // lynntf January 2020
-let myp5 = new p5(s, document.getElementById('p5sketch'));
+
 
 max_iters = 200;
 startup = 5;
@@ -28,6 +28,7 @@ let travelers = [];
 
 function setup() {
   createCanvas(500, 500);
+  canvas.parent('p5sketch');
   background(0,0,0);
   cnorm = sqrt(R * R + G * G + B * B);
   R = R / cnorm * 255;
