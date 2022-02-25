@@ -1,3 +1,9 @@
 theme: jekyll-theme-cayman
 title: Thomas Lynn
 description: PhD Candidate in Applied Mathematics
+navbar-links:
+  About Me: "aboutme"
+  Resources:
+    - Google: "https://google.com"
+    - Learn markdown: "https://www.markdowntutorial.com/"
+  Author's home: "lynntf.github.io"
