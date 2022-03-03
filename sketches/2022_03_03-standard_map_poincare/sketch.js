@@ -22,24 +22,41 @@ K = 0.971635;
 A = 1.0;
 B = 0.0;
 C = 0.0;
-
+let slider;
+// let inp;
 
 let travelers = [];
 
 function setup() {
+  slider = createSlider(0,4,0.8,0.000001);
+  slider.position(10,10);
+  slider.style('width', '100px');
+  slider.input(sliderFunction);
+  inp = createInput(K);
+  inp.position(120, 10);
+  inp.size(100);
+  inp.input(inputFunction);
+  // slider.style('width', '100px')
   ymax = 2*PI;
   xmax = 2*PI;
   shift_x = PI;
   // shift_x = 0;
   shift_y = 0;
   var canvas = createCanvas(500, 500);
-  canvas.parent('p5sketch');
+  // canvas.parent('p5sketch');
   background(0,0,0);
   colorMode(HSB);
   for (i = 0; i < maxnum; i++) {
     travelers[i] = new traveler(i);
     num++;
   }
+}
+
+function inputFunction(){
+  slider.value(inp.value());
+}
+function sliderFunction(){
+  inp.value(slider.value());
 }
 
 function draw() {
@@ -66,6 +83,14 @@ function touchStarted() {
       travelers[i].rebirth();
     }
     m = 0;
+    if (K == slider.value()){
+      K = 4*random();
+      slider.value(K);
+    } else {
+      K = slider.value();
+    }
+    console.log("K = ",K);
+    inp.value(K); 
   }
 }
 
@@ -113,6 +138,5 @@ class traveler {
     this.yo = this.y;
     this.age = 0;
     this.hue = random();
-    K = 4*random();
   }
 }
