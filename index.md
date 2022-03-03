@@ -1,4 +1,4 @@
-## Welcome
+## Thomas F. Lynn
 
 I am a PhD candidate at Northwestern University studying Appleid Mathematics. You can find my resume [here](ThomasLynn_resume_2.pdf).
 
