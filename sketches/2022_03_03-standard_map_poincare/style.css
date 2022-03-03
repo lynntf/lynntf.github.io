@@ -1,0 +1,14 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+#p5sketch {
+   text-align:center;
+   width: 50%;
+   margin: 0 auto;
+}
+
+canvas {
+   display: inline;
+}
