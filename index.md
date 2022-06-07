@@ -1,11 +1,13 @@
 # Thomas F. Lynn
 ## Welcome
 
-I am a PhD candidate at Northwestern University studying Appleid Mathematics. You can find my resume [here](ThomasLynn_resume_2.pdf).
+I am a Postdoc at Argonne National Lab. I received my Ph.D. at Northwestern University studying Applied Mathematics.
 
-## Research interests
+## Research
 
-I study mixing due to *cutting-and-shuffling* as it applies to systems of solid granular materials. Currently, I am attempting to apply mahcine learning to a simple cut-and-shuffle system (called an *ineterval exchange transform*, or *IET*), both in a *supervised learning* approach and a *reinforcement learning* approach.
+Currently, I am investigating methods for discerning nuclei structure from &gamma-ray spectroscopy measurements.
+
+In my Ph.D., I studied mixing due to *cutting-and-shuffling* as it applies to systems of solid granular materials.
 
 ## Processing Sketches
 
