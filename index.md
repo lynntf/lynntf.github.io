@@ -5,7 +5,7 @@ I am a Postdoc at Argonne National Lab. I received my Ph.D. at Northwestern Univ
 
 ## Research
 
-Currently, I am investigating methods for discerning nuclei structure from &gamma-ray spectroscopy measurements.
+Currently, I am investigating methods for discerning nuclei structure from &gamma;-ray spectroscopy measurements.
 
 In my Ph.D., I studied mixing due to *cutting-and-shuffling* as it applies to systems of solid granular materials.
 
