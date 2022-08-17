@@ -94,6 +94,27 @@ function touchStarted() {
   }
 }
 
+function mousePressed() {
+  m++;
+  q = 0;
+  if (m > 1) {
+    exposures = 0;
+    background(0);
+    for (i = 0; i < maxnum; i++) {
+      travelers[i].rebirth();
+    }
+    m = 0;
+    if (K == slider.value()){
+      K = 4*random();
+      slider.value(K);
+    } else {
+      K = slider.value();
+    }
+    console.log("K = ",K);
+    inp.value(K); 
+  }
+}
+
 
 class traveler {
   constructor(i) {
