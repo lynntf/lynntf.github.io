@@ -78,6 +78,29 @@ function touchStarted() {
   }
 }
 
+function mousePressed() {
+  m++;
+  q = 0;
+  if (m > 1) {
+    background(255, 255, 255);
+    a = random(-PI, PI);
+    b = random(-PI, PI);
+    c = random(-PI, PI);
+    d = random(-PI, PI);
+    exposures = 0;
+    for (i = 0; i < maxnum; i++) {
+      travelers[i].rebirth();
+    }
+    print("Reset image----------")
+    print("a:" + a + "")
+    print("b:" + b + "")
+    print("c:" + c + "")
+    print("d:" + d + "\n")
+    stroke(0, 0, 0, 5);
+    m = 0;
+  }
+}
+
 
 class traveler {
   constructor(i) {
