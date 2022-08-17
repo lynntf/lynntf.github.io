@@ -22,7 +22,7 @@ function setup() {
   dimx = min(displayWidth,500);
   dimy = dimx;
   var canvas = createCanvas(dimx, dimy + 100);
-  canvas.parent('sketch-holder');
+  //canvas.parent('sketch-holder');
   background(255, 255, 255);
   //colorMode(RGB,255,255,255);
   //noStroke();
@@ -32,7 +32,9 @@ function setup() {
   }
   
   
-  checkbox = createCheckbox('Alpha = Beta', false);
+  checkbox = createCheckbox('', false);
+  checkboxlabel = createSpan('&alpha; = &beta;');
+  checkboxlabel.position(175,dimy + 75);
   checkbox.changed(alphEqBeta);
   checkbox.position(150,dimy + 75);
   
@@ -52,11 +54,11 @@ function setup() {
   randrButton.mousePressed(randr);
   randrButton.position(0, dimy + 50);
   
-  alabel = createSpan('Alpha');
+  alabel = createSpan('&alpha;');
   alabel.position(150,dimy + 0);
-  blabel = createSpan('Beta');
+  blabel = createSpan('&beta;');
   blabel.position(150,dimy + 25);
-  glabel = createSpan('Gamma');
+  glabel = createSpan('&gamma;');
   glabel.position(150,dimy + 50);
   inpAlph = createInput('57');
   inpAlph.position(200,dimy + 0);
