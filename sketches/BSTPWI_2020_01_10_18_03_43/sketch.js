@@ -1,7 +1,7 @@
 // Biaxial hemispherical PWI
 // lynntf January 2020
 
-//res = 500;
+res = 500;
 xmin = -1;
 xmax = 1;
 ymin = -1;
@@ -11,6 +11,7 @@ zmax = 1;
 max_iters = 10000000;
 num_tracers = 1000;
 aeb = false;
+gamma90 = false;
 projection = 0;
 
 tracers = [];
@@ -19,11 +20,12 @@ function setup() {
   gamma = 120*PI/180;
   alph = 57*PI/180;
   beta = 57*PI/180;
-  dimx = min(displayWidth,500);
+  dimx = min(displayWidth,res);
   dimy = dimx;
   var canvas = createCanvas(dimx, dimy + 100);
   canvas.parent('sketch-holder');
   background(255, 255, 255);
+  strokeWeight(0.5)
   //colorMode(RGB,255,255,255);
   //noStroke();
   // make some tracers
@@ -37,6 +39,12 @@ function setup() {
   checkboxlabel.position(175,dimy + 75);
   checkbox.changed(alphEqBeta);
   checkbox.position(150,dimy + 75);
+  
+  checkbox = createCheckbox('', false);
+  checkboxlabel = createSpan('&gamma; = 90&deg;');
+  checkboxlabel.position(250,dimy + 75);
+  checkbox.changed(orthog);
+  checkbox.position(225,dimy + 75);
   
   checkbox = createCheckbox('Projection', false);
   checkbox.changed(proj);
@@ -86,7 +94,18 @@ function alphEqBeta() {
   }
 }
 
+function orthog() {
+  if (this.checked()) {
+    gamma90 = true;
+  } else {
+    gamma90 = false;
+  }
+}
+
 function draw() {
+  stroke(255)
+  rect(0, 0, 55, 55);
+  text(iters, 0, 10);
   for (i=0; i<num_tracers; i++) {
     tracers[i].draw();
   }
@@ -107,6 +126,9 @@ function randomize() {
   if(aeb) {
     b = a;
   }
+  if(gamma90){
+    g = PI/2;
+  }
   inpAlph.value(a/PI*180);
   inpBeta.value(b/PI*180);
   inpGamma.value(g/PI*180);
@@ -119,6 +141,7 @@ function randr() {
 
 function reset() {
   background(255);
+  iters = 0;
   alph = inpAlph.value()*PI/180;
   beta = inpBeta.value()*PI/180;
   gamma = inpGamma.value()*PI/180;
